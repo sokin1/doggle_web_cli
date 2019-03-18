@@ -1,0 +1,39 @@
+type User {
+    id: ID!
+    eid: String!
+    name: String!
+    email: String!
+    score: Int!
+}
+
+type recommendation {
+    name: String!
+    type: String!
+    address: String!
+}
+
+type Plan {
+    id: ID!
+    suggester: User!
+    place: String!
+    up: Int!
+    down: Int!
+    schedules: [Schedule]!
+}
+
+type Schedule {
+    id: ID!
+    from: String!
+    to: String!
+    where: String!
+    address: String!
+    description: String!
+}
+
+type Query {
+    user(id: ID!): User
+    plans: [Plan]!
+    plan(id: ID!): Plan
+    schedule(id: ID!): Schedule
+    schedules:[Schedule]!
+}
